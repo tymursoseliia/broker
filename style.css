@@ -1,0 +1,562 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(43, 45, 50, 0.85); /* В оригинале темный полупрозрачный фон */
+    border-bottom: none;
+}
+
+.header-container {
+    max-width: 100%; /* Делаем шапку на всю ширину страницы */
+    margin: 0 auto;
+    padding: 10px 15px; /* Придвигаем логотип к самому краю */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 32px; /* Уменьшил логотип чуть-чуть, чтобы он был гармоничным */
+    width: auto;
+}
+
+.main-nav {
+    display: flex;
+    gap: 0; /* Убрал зазор между кнопками */
+    flex-wrap: nowrap;
+    margin-left: 10px; /* Сделал левее к логотипу */
+    margin-right: auto;
+}
+
+.main-nav .nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: none;
+    transition: background-color 0.2s, color 0.2s;
+    letter-spacing: normal;
+    white-space: nowrap;
+    padding: 12px 10px; /* Сделал 'кучнее', уменьшив горизонтальный padding */
+    border-radius: 2px; /* Еле заметное скругление, чтобы не было совсем рубленым */
+}
+
+.main-nav .nav-link:hover {
+    background-color: #d1d5d8; /* Светло-серый фон как в оригинале */
+    color: #1A1D20; /* Текст становится темным */
+}
+
+/* Dropdown Menu Styles */
+.dropdown-wrapper {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #2B2D32; /* Тёмно-серый фон как на скриншоте */
+    min-width: 250px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    padding: 10px 0;
+    flex-direction: column;
+    z-index: 1001; /* Поверх всего */
+}
+
+.dropdown-wrapper:hover .dropdown-menu {
+    display: flex;
+}
+
+.dropdown-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 12px 20px;
+    transition: background-color 0.2s, color 0.2s;
+    font-weight: 400; /* В самом меню шрифт светлее, чем в шапке */
+    display: block; /* Ensure it takes full width */
+}
+
+/* Изменяем ховер дропдаунов, чтобы он был светло-серым с темным текстом как на скрине */
+.dropdown-menu a:hover,
+.nested-dropdown:hover > a {
+    background-color: #d1d5d8;
+    color: #1A1D20;
+}
+
+/* Nested Dropdown Styles */
+.nested-dropdown {
+    position: relative;
+    display: block;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%; /* Выезжает вправо от родительского меню */
+    background-color: #2B2D32;
+    min-width: 380px; /* Сделал шире, так как текст длинный */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    padding: 10px 0;
+    flex-direction: column;
+    z-index: 1005;
+}
+
+.nested-dropdown:hover .submenu {
+    display: flex;
+}
+
+/* Hotline Dropdown Styles */
+.hotline-dropdown {
+    right: 0;
+    left: auto; /* Прижимаем к правому краю, чтобы не вылезло за экран */
+    padding: 16px 20px; /* Уменьшил фон (окошко) */
+    min-width: 260px; /* Сделал окно у́же */
+    cursor: default;
+}
+
+.hotline-title {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.hotline-main-number {
+    color: #fff;
+    font-size: 40px; /* Увеличил верхний номер в выпадающем окне */
+    font-weight: 700;
+    margin-bottom: 24px;
+    text-decoration: none;
+    display: block;
+    transition: color 0.2s;
+}
+
+.hotline-main-number:hover {
+    color: #58E3F5;
+}
+
+.hotline-social {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 16px;
+}
+
+.hotline-social:last-child {
+    margin-bottom: 0;
+}
+
+.hotline-social a {
+    padding: 0 !important; /* Убираем стандартные отступы для ссылок в этом меню */
+    background: transparent !important;
+    font-size: 15px;
+    font-weight: 400;
+    transition: color 0.2s;
+}
+
+.hotline-dropdown a:hover {
+    background-color: transparent !important; /* Убираем серый фон при наведении */
+    color: #58E3F5 !important; /* Цвет как у 197 */
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon.whatsapp {
+    background-color: #25D366;
+}
+
+.social-icon.viber {
+    background-color: #7360F2;
+}
+
+.social-icon img {
+    filter: invert(1);
+    width: 14px;
+    height: 14px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+    cursor: pointer;
+}
+
+.hotline-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Чуть увеличил расстояние до Ещё */
+}
+
+.hotline {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Расстояние между трубкой и цифрой */
+    text-decoration: none;
+}
+
+.hotline img {
+    width: 18px; /* Вернул прежний размер трубке */
+    height: auto;
+}
+
+.phone-number {
+    color: #58E3F5; 
+    font-size: 30px; /* Вернул прежний размер номеру 197 */
+    font-weight: 700;
+    line-height: 1;
+}
+
+.more-options {
+    color: #fff;
+    font-size: 14px; /* Как в оригинале, размер "Ещё" такой же как у меню */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.down-arrow {
+    width: 10px;
+    filter: brightness(0) invert(1);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    background: url('assets/hero-bg.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Темный оверлей для читаемости */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1520px;
+    margin: 0 auto;
+    padding: 0 40px;
+    padding-left: 180px; /* Сдвигаем вправо из-за сайдбара */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-text {
+    max-width: 650px;
+}
+
+.hero-text h1 {
+    font-size: 64px;
+    color: #fff;
+    margin-bottom: 24px;
+    line-height: 1.1;
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: #ddd;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.contact-btn {
+    display: inline-block;
+    background-color: #58E3F5;
+    color: #1A1D20;
+    text-decoration: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600; /* В Montserrat полужирный смотрится лучше */
+    border-radius: 4px; /* Чуть скруглил кнопку, как в оригинале */
+    transition: background-color 0.3s;
+}
+
+.contact-btn:hover {
+    background-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(89, 199, 212, 0.4);
+}
+
+/* Left Sidebar */
+.left-sidebar {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 120px;
+}
+
+.left-sidebar .handle {
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 3px;
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    text-transform: lowercase;
+    font-weight: 500;
+}
+
+.socials {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.socials img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+
+.socials img:hover {
+    opacity: 1;
+}
+
+/* Right Panel */
+.right-panel {
+    width: 380px;
+    background: rgba(15, 20, 30, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.news-item {
+    display: flex;
+    gap: 16px;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.news-item:hover {
+    transform: translateX(-5px);
+    background: rgba(255,255,255,0.1);
+}
+
+.news-item img {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.news-content h5 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #fff;
+}
+
+.news-content p {
+    font-size: 12px;
+    color: #aaa;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* =========================================
+   WIDGET ПРОВЕРКИ БРОКЕРОВ (SUPABASE)
+   ========================================= */
+
+.broker-verification-widget {
+    margin-top: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 24px;
+    color: #fff;
+    max-width: 550px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.broker-verification-widget h3 {
+    margin: 0 0 8px 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.broker-verification-widget p {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.search-box {
+    display: flex;
+    gap: 12px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.25);
+    color: #fff;
+    font-size: 16px;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-box input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.search-box input:focus {
+    border-color: #58E3F5;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0 3px rgba(88, 227, 245, 0.2);
+}
+
+.search-box button {
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    padding: 14px 28px;
+    white-space: nowrap;
+}
+
+.search-result {
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    animation: fadeInResult 0.3s ease-out;
+}
+
+@keyframes fadeInResult {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.search-result.hidden {
+    display: none;
+}
+
+.search-result.success {
+    background: rgba(46, 204, 113, 0.15);
+    border: 1px solid rgba(46, 204, 113, 0.4);
+}
+
+.search-result.error {
+    background: rgba(231, 76, 60, 0.15);
+    border: 1px solid rgba(231, 76, 60, 0.4);
+}
+
+.result-field {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 8px;
+}
+
+.result-field:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.result-field span:first-child {
+    color: rgba(255,255,255,0.7);
+}
+
+.result-field strong {
+    color: #fff;
+    font-weight: 500;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-active {
+    background: #2ecc71;
+    color: #000;
+}
