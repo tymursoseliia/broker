@@ -686,8 +686,10 @@ header {
     }
 
     .hero {
-        padding: 100px 20px 40px;
+        padding: 130px 20px 40px; /* Slight bump down for header clearance */
         background-color: #10151d;
+        align-items: flex-start; /* CRUCIAL: Top align so expanding child pushes down, not up and down */
+        overflow-y: auto;        /* Let it scroll within .hero if it expands beyond screen */
     }
 
     .hero-content {
