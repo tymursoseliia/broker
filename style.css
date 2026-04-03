@@ -615,6 +615,10 @@ header {
 }
 
 @media (max-width: 1024px) {
+    body {
+        overflow: hidden; /* Disable scrolling completely on mobile */
+    }
+    
     .header-container {
         padding: 15px;
         position: relative;
@@ -727,8 +731,7 @@ header {
     }
 
     .right-panel {
-        width: 100%;
-        padding: 20px;
+        display: none; /* Removed completely for mobile as requested */
     }
     
     .result-field {
