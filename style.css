@@ -337,7 +337,7 @@ header {
 .left-sidebar {
     position: absolute;
     left: 20px;
-    top: 65px; /* Прижали под самую шапку */
+    top: 80px; /* Чуть опустили, чтобы не пересекало линию шапки */
     z-index: 2;
     display: flex;
     flex-direction: column;
