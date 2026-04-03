@@ -582,3 +582,129 @@ header {
     background: #2ecc71;
     color: #000;
 }
+
+/* =========================================
+   MOBILE RESPONSIVE
+   ========================================= */
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+}
+
+@media (max-width: 1024px) {
+    .header-container {
+        padding: 15px;
+        position: relative;
+    }
+    
+    .logo img {
+        height: 35px;
+    }
+
+    .main-nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background: rgba(15, 20, 30, 0.98);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        gap: 15px;
+        z-index: 1000;
+    }
+    
+    .main-nav.active {
+        display: flex;
+    }
+    
+    /* Make dropdowns wrap naturally on mobile without deep flying panels */
+    .main-nav .dropdown-menu {
+        position: static;
+        width: 100%;
+        opacity: 1;
+        visibility: visible;
+        display: none; /* Hide via JS if needed, or by default just stack them */
+        box-shadow: none;
+        background: transparent;
+        padding-left: 20px;
+        transform: none;
+        padding-top: 5px;
+    }
+
+    /* On hover dropdown won't work perfectly on mobile, so we just show them on hover IF flex is there, but wait, without JS hover falls back to tap */
+    .dropdown-wrapper:hover .dropdown-menu {
+        display: flex;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        margin-left: auto;
+    }
+    
+    .header-right {
+        gap: 10px;
+    }
+
+    .header-right .hotline-wrapper span.more-options,
+    .header-right .hotline-wrapper span.phone-number {
+        display: none;
+    }
+
+    .hero {
+        padding: 120px 20px 40px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        padding: 0;
+    }
+
+    .hero-text {
+        max-width: 100%;
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 38px;
+    }
+
+    .broker-verification-widget {
+        margin: 24px auto 0;
+        text-align: left;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+    
+    .search-box button {
+        width: 100%;
+    }
+
+    .left-sidebar {
+        display: none;
+    }
+
+    .right-panel {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .result-field {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+}
