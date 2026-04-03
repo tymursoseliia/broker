@@ -337,8 +337,7 @@ header {
 .left-sidebar {
     position: absolute;
     left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 22%; /* Подняли выше */
     z-index: 2;
     display: flex;
     flex-direction: column;
