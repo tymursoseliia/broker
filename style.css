@@ -354,6 +354,12 @@ header {
     white-space: nowrap;
     text-transform: lowercase;
     font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.left-sidebar .handle:hover {
+    color: #58E3F5;
 }
 
 .socials {
