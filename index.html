@@ -330,12 +330,19 @@
                     // Берем первый найденный результат
                     const record = data[0];
                     
+                    // Меняем 2031 год на 2027 только для отображения на сайте
+                    let displayDate = record.valid_until || '—';
+                    if (displayDate !== '—') {
+                        // Заменяем 2031 и любые другие случайные годы на 2027, или жестко "2031" на "2027"
+                        displayDate = displayDate.replace('2031', '2027');
+                    }
+
                     resultDiv.classList.add('success');
                     resultDiv.innerHTML = `
                         <div class="result-field"><span>Статус документа:</span> <span class="status-badge status-active">Действителен</span></div>
                         <div class="result-field"><span>ФИО:</span> <strong>${record.full_name || '—'}</strong></div>
                         <div class="result-field"><span>Номер лицензии:</span> <strong>${record.license_number || '—'}</strong></div>
-                        <div class="result-field"><span>Действительна до:</span> <strong>${record.valid_until || '—'}</strong></div>
+                        <div class="result-field"><span>Действительна до:</span> <strong>${displayDate}</strong></div>
                     `;
                 } else {
                     // ЕСЛИ ДОКУМЕНТ НЕ НАЙДЕН
