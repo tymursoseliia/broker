@@ -336,21 +336,22 @@ header {
 /* Left Sidebar */
 .left-sidebar {
     position: absolute;
-    left: 40px;
+    left: 20px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 120px;
+    gap: 30px;
 }
 
 .left-sidebar .handle {
     color: #fff;
-    font-size: 14px;
-    letter-spacing: 3px;
-    transform: rotate(-90deg);
+    font-size: 15px;
+    letter-spacing: 2px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
     white-space: nowrap;
     text-transform: lowercase;
     font-weight: 500;
@@ -359,20 +360,25 @@ header {
 .socials {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 20px;
 }
 
-.socials img {
-    width: 24px;
-    height: 24px;
-    filter: brightness(0) invert(1);
+.socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.socials svg {
     opacity: 0.8;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
     cursor: pointer;
 }
 
-.socials img:hover {
+.socials svg:hover {
     opacity: 1;
+    transform: scale(1.1);
 }
 
 /* Right Panel */
